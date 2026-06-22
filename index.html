@@ -45,11 +45,6 @@
         border-radius:20px;
         overflow:hidden;
         box-shadow:0 10px 30px rgba(0,0,0,0.2);
-        transition:0.3s;
-    }
-
-    .card:hover{
-        transform:translateY(-8px);
     }
 
     .card img{
@@ -86,13 +81,6 @@
         margin-bottom:10px;
     }
 
-    footer{
-        text-align:center;
-        color:white;
-        padding:30px;
-        margin-top:40px;
-    }
-
     .btn{
         display:inline-block;
         margin-top:20px;
@@ -101,14 +89,56 @@
         text-decoration:none;
         padding:12px 25px;
         border-radius:30px;
+    }
+
+    footer{
+        text-align:center;
+        color:white;
+        padding:30px;
+        margin-top:40px;
+    }
+
+    /* ❤️ / 👎 */
+    .reactions{
+        margin-top:20px;
+        display:flex;
+        align-items:center;
+        gap:10px;
+    }
+
+    .like-btn, .dislike-btn{
+        border:none;
+        padding:10px 15px;
+        border-radius:30px;
+        cursor:pointer;
+        color:white;
+        font-size:16px;
         transition:0.3s;
     }
 
-    .btn:hover{
-        background:#2575fc;
+    .like-btn{
+        background:#ff2e63;
+    }
+
+    .dislike-btn{
+        background:#444;
+    }
+
+    .active-like{
+        background:#b3003c !important;
+    }
+
+    .active-dislike{
+        background:#000 !important;
+    }
+
+    .counter{
+        font-weight:bold;
+        margin-right:10px;
     }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -117,44 +147,83 @@
 </header>
 
 <div class="container">
+
     <div class="card">
-        <img src="https://photos.enjoei.com.br/kit-capinhas-celular-varios-modelos-43-capinhas-98721575/800x800/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy8zNDkzMTc5NS8wZGZhMTY3NGUyYzYyZGJkNjJjNzA3MDQyYmMyYTE4ZC5qcGc" alt="Capinhas de celular">
+        <img src="https://photos.enjoei.com.br/kit-capinhas-celular-varios-modelos-43-capinhas-98721575/800x800/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy8zNDkzMTc5NS8wZGZhMTY3NGUyYzYyZGJkNjJjNzA3MDQyYmMyYTE4ZC5qcGc">
 
         <div class="content">
             <h2>Capinhas: proteção com personalidade</h2>
 
-            <p>
-                Olá! Eu sou <strong>Samuel</strong> e adoro colecionar e conhecer
-                diferentes modelos de capinhas para celular. Além de proteger o aparelho,
-                elas ajudam a mostrar nosso estilo e personalidade.
-            </p>
+            <p>Olá! Eu sou Samuel e adoro colecionar capinhas de celular.</p>
 
-            <p>
-                Existem capinhas coloridas, transparentes, resistentes, temáticas,
-                gamers e até personalizadas. Cada uma delas deixa o celular com uma
-                aparência única.
-            </p>
+            <!-- REAÇÕES -->
+            <div class="reactions">
+                <button class="like-btn" id="likeBtn" onclick="like()">❤️ Curtir</button>
+                <button class="dislike-btn" id="dislikeBtn" onclick="dislike()">👎 Deslike</button>
 
-            <p>
-                Nesta foto você pode ver vários modelos incríveis que inspiram novas
-                combinações e ideias para quem gosta de acessórios tecnológicos.
-            </p>
-
-            <div class="tags">
-                <span class="tag">📱 Tecnologia</span>
-                <span class="tag">🎨 Estilo</span>
-                <span class="tag">✨ Capinhas</span>
-                <span class="tag">🔥 Tendências</span>
+                <span class="counter">👍 <span id="likes">0</span></span>
+                <span class="counter">👎 <span id="dislikes">0</span></span>
             </div>
 
             <a href="#" class="btn">Ver Mais Conteúdos</a>
         </div>
     </div>
+
 </div>
 
 <footer>
     © 2026 - Blog do Samuel | Feito com ❤️
 </footer>
+
+<script>
+    let state = "none"; // none | like | dislike
+    let likes = 0;
+    let dislikes = 0;
+
+    function updateUI(){
+        document.getElementById("likes").textContent = likes;
+        document.getElementById("dislikes").textContent = dislikes;
+
+        const likeBtn = document.getElementById("likeBtn");
+        const dislikeBtn = document.getElementById("dislikeBtn");
+
+        likeBtn.classList.remove("active-like");
+        dislikeBtn.classList.remove("active-dislike");
+
+        if(state === "like"){
+            likeBtn.classList.add("active-like");
+        } 
+        else if(state === "dislike"){
+            dislikeBtn.classList.add("active-dislike");
+        }
+    }
+
+    function like(){
+        if(state === "like"){
+            likes--;
+            state = "none";
+        } 
+        else {
+            if(state === "dislike") dislikes--;
+            likes++;
+            state = "like";
+        }
+        updateUI();
+    }
+
+    function dislike(){
+        if(state === "dislike"){
+            dislikes--;
+            state = "none";
+        } 
+        else {
+            if(state === "like") likes--;
+            dislikes++;
+            state = "dislike";
+        }
+        updateUI();
+    }
+</script>
 
 </body>
 </html>
