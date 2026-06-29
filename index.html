@@ -6,223 +6,347 @@
 <title>Blog do Samuel</title>
 
 <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family:'Segoe UI', sans-serif;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
 
-    body{
-        background: linear-gradient(135deg,#6a11cb,#2575fc);
-        color:#333;
-    }
+body{
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    color:#333;
+}
 
-    header{
-        text-align:center;
-        color:white;
-        padding:60px 20px;
-    }
+header{
+    text-align:center;
+    color:white;
+    padding:60px 20px;
+}
 
-    header h1{
-        font-size:3rem;
-        margin-bottom:10px;
-    }
+header h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
 
-    header p{
-        font-size:1.2rem;
-        opacity:0.9;
-    }
+header p{
+    font-size:1.2rem;
+    opacity:.9;
+}
 
-    .container{
-        max-width:1100px;
-        margin:auto;
-        padding:30px;
-    }
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:30px;
+}
 
-    .card{
-        background:white;
-        border-radius:20px;
-        overflow:hidden;
-        box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    }
+.card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    margin-bottom:40px;
+}
 
-    .card img{
-        width:100%;
-        height:450px;
-        object-fit:cover;
-    }
+.card img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+}
 
-    .content{
-        padding:30px;
-    }
+.content{
+    padding:30px;
+}
 
-    .content h2{
-        color:#2575fc;
-        margin-bottom:15px;
-    }
+.content h2{
+    color:#2575fc;
+    margin-bottom:15px;
+}
 
-    .content p{
-        line-height:1.8;
-        margin-bottom:15px;
-    }
+.content p{
+    line-height:1.8;
+    margin-bottom:15px;
+}
 
-    .tags{
-        margin-top:20px;
-    }
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#6a11cb;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:30px;
+}
 
-    .tag{
-        display:inline-block;
-        background:#2575fc;
-        color:white;
-        padding:8px 15px;
-        border-radius:20px;
-        margin-right:10px;
-        margin-bottom:10px;
-    }
+footer{
+    text-align:center;
+    color:white;
+    padding:30px;
+}
 
-    .btn{
-        display:inline-block;
-        margin-top:20px;
-        background:#6a11cb;
-        color:white;
-        text-decoration:none;
-        padding:12px 25px;
-        border-radius:30px;
-    }
+.reactions{
+    margin-top:20px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
 
-    footer{
-        text-align:center;
-        color:white;
-        padding:30px;
-        margin-top:40px;
-    }
+.like-btn,.dislike-btn{
+    border:none;
+    padding:10px 15px;
+    border-radius:30px;
+    cursor:pointer;
+    color:white;
+    font-size:16px;
+    transition:.3s;
+}
 
-    /* ❤️ / 👎 */
-    .reactions{
-        margin-top:20px;
-        display:flex;
-        align-items:center;
-        gap:10px;
-    }
+.like-btn{
+    background:#ff2e63;
+}
 
-    .like-btn, .dislike-btn{
-        border:none;
-        padding:10px 15px;
-        border-radius:30px;
-        cursor:pointer;
-        color:white;
-        font-size:16px;
-        transition:0.3s;
-    }
+.dislike-btn{
+    background:#444;
+}
 
-    .like-btn{
-        background:#ff2e63;
-    }
+.active-like{
+    background:#b3003c!important;
+}
 
-    .dislike-btn{
-        background:#444;
-    }
+.active-dislike{
+    background:#000!important;
+}
 
-    .active-like{
-        background:#b3003c !important;
-    }
-
-    .active-dislike{
-        background:#000 !important;
-    }
-
-    .counter{
-        font-weight:bold;
-        margin-right:10px;
-    }
+.counter{
+    font-weight:bold;
+}
 </style>
+
 </head>
 
 <body>
 
 <header>
-    <h1>📱 Blog do Samuel</h1>
-    <p>O mundo das capinhas de celular e muito estilo!</p>
+<h1>📱 Blog do Samuel</h1>
+<p>O mundo das capinhas de celular e muito estilo!</p>
 </header>
 
 <div class="container">
 
-    <div class="card">
-        <img src="https://photos.enjoei.com.br/kit-capinhas-celular-varios-modelos-43-capinhas-98721575/800x800/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy8zNDkzMTc5NS8wZGZhMTY3NGUyYzYyZGJkNjJjNzA3MDQyYmMyYTE4ZC5qcGc">
+<div class="card">
 
-        <div class="content">
-            <h2>Capinhas: proteção com personalidade</h2>
+<img src="https://photos.enjoei.com.br/kit-capinhas-celular-varios-modelos-43-capinhas-98721575/800x800/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy8zNDkzMTc5NS8wZGZhMTY3NGUyYzYyZGJkNjJjNzA3MDQyYmMyYTE4ZC5qcGc">
 
-            <p>Olá! Eu sou Samuel e adoro colecionar capinhas de celular.</p>
+<div class="content">
 
-            <!-- REAÇÕES -->
-            <div class="reactions">
-                <button class="like-btn" id="likeBtn" onclick="like()">❤️ Curtir</button>
-                <button class="dislike-btn" id="dislikeBtn" onclick="dislike()">👎 Deslike</button>
+<h2>Capinhas: proteção com personalidade</h2>
 
-                <span class="counter">👍 <span id="likes">0</span></span>
-                <span class="counter">👎 <span id="dislikes">0</span></span>
-            </div>
+<p>Olá! Eu sou Samuel e adoro colecionar capinhas de celular.</p>
 
-            <a href="#" class="btn">Ver Mais Conteúdos</a>
-        </div>
-    </div>
+<div class="reactions">
+
+<button class="like-btn" id="likeBtn" onclick="like()">
+👍 Curtir
+</button>
+
+<button class="dislike-btn" id="dislikeBtn" onclick="dislike()">
+👎 Deslike
+</button>
+
+<span class="counter">
+👍 <span id="likes">0</span>
+</span>
+
+<span class="counter">
+👎 <span id="dislikes">0</span>
+</span>
+
+</div>
+
+<a href="#" class="btn">Ver Mais Conteúdos</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhVoOyMMSMc-9dbHLYXF0UoHwyhHokTGi8_f-QOJA89g&s=10">
+
+<div class="content">
+
+<h2>Capinhas estranhas 😂</h2>
+
+<p>
+Tem capinha que protege o celular...
+e tem capinha que faz todo mundo perguntar:
+"Mas o que é isso?" 😂📱
+Quanto mais estranha, mais divertida ela fica!
+</p>
+
+<div class="reactions">
+
+<button class="like-btn" id="likeBtn2" onclick="like2()">
+👍 Curtir
+</button>
+
+<button class="dislike-btn" id="dislikeBtn2" onclick="dislike2()">
+👎 Deslike
+</button>
+
+<span class="counter">
+👍 <span id="likes2">0</span>
+</span>
+
+<span class="counter">
+👎 <span id="dislikes2">0</span>
+</span>
+
+</div>
+
+<a href="#" class="btn">Ver Mais Conteúdos</a>
+
+</div>
+
+</div>
 
 </div>
 
 <footer>
-    © 2026 - Blog do Samuel | Feito com ❤️
+© 2026 - Blog do Samuel | Feito com ❤️
 </footer>
 
 <script>
-    let state = "none"; // none | like | dislike
-    let likes = 0;
-    let dislikes = 0;
 
-    function updateUI(){
-        document.getElementById("likes").textContent = likes;
-        document.getElementById("dislikes").textContent = dislikes;
+let state="none";
+let likes=0;
+let dislikes=0;
 
-        const likeBtn = document.getElementById("likeBtn");
-        const dislikeBtn = document.getElementById("dislikeBtn");
+function updateUI(){
 
-        likeBtn.classList.remove("active-like");
-        dislikeBtn.classList.remove("active-dislike");
+document.getElementById("likes").textContent=likes;
+document.getElementById("dislikes").textContent=dislikes;
 
-        if(state === "like"){
-            likeBtn.classList.add("active-like");
-        } 
-        else if(state === "dislike"){
-            dislikeBtn.classList.add("active-dislike");
-        }
-    }
+const likeBtn=document.getElementById("likeBtn");
+const dislikeBtn=document.getElementById("dislikeBtn");
 
-    function like(){
-        if(state === "like"){
-            likes--;
-            state = "none";
-        } 
-        else {
-            if(state === "dislike") dislikes--;
-            likes++;
-            state = "like";
-        }
-        updateUI();
-    }
+likeBtn.classList.remove("active-like");
+dislikeBtn.classList.remove("active-dislike");
 
-    function dislike(){
-        if(state === "dislike"){
-            dislikes--;
-            state = "none";
-        } 
-        else {
-            if(state === "like") likes--;
-            dislikes++;
-            state = "dislike";
-        }
-        updateUI();
-    }
+if(state==="like"){
+likeBtn.classList.add("active-like");
+}else if(state==="dislike"){
+dislikeBtn.classList.add("active-dislike");
+}
+
+}
+
+function like(){
+
+if(state==="like"){
+likes--;
+state="none";
+}else{
+
+if(state==="dislike"){
+dislikes--;
+}
+
+likes++;
+state="like";
+
+}
+
+updateUI();
+
+}
+
+function dislike(){
+
+if(state==="dislike"){
+dislikes--;
+state="none";
+}else{
+
+if(state==="like"){
+likes--;
+}
+   dislikes++;
+state="dislike";
+}
+
+updateUI();
+
+}
+
+
+// =======================
+// SEGUNDO POST
+// =======================
+
+let state2="none";
+let likes2=0;
+let dislikes2=0;
+
+function updateUI2(){
+
+document.getElementById("likes2").textContent=likes2;
+document.getElementById("dislikes2").textContent=dislikes2;
+
+const likeBtn=document.getElementById("likeBtn2");
+const dislikeBtn=document.getElementById("dislikeBtn2");
+
+likeBtn.classList.remove("active-like");
+dislikeBtn.classList.remove("active-dislike");
+
+if(state2==="like"){
+likeBtn.classList.add("active-like");
+}else if(state2==="dislike"){
+dislikeBtn.classList.add("active-dislike");
+}
+
+}
+
+function like2(){
+
+if(state2==="like"){
+likes2--;
+state2="none";
+}else{
+
+if(state2==="dislike"){
+dislikes2--;
+}
+
+likes2++;
+state2="like";
+
+}
+
+updateUI2();
+
+}
+
+function dislike2(){
+
+if(state2==="dislike"){
+dislikes2--;
+state2="none";
+}else{
+
+if(state2==="like"){
+likes2--;
+}
+
+dislikes2++;
+state2="dislike";
+
+}
+
+updateUI2();
+
+}
+
 </script>
 
 </body>
